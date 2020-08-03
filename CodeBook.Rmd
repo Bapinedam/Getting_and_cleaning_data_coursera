@@ -1,0 +1,45 @@
+---
+title: 'Codebook: Getting and cleaning Data final project on Cousera'
+author: "Brayam Pineda"
+date: "28/7/2020"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: inline
+---
+
+## CODEBOOK
+
+This is the codebook file to the final project of "Getting and cleaning data" course in Coursera. 
+
+Here you are going to find the description about variables of "finalData.r" file, that file have the process that it take, but if you require more specific information you can acudde to README file in this repository.
+
+## VARIABLES
+
+The finalData file contain 180 observation of 30 subjects (six for each one) about 79 features. Each one of that six observation by subject correspond to the next six activity
+
+- `WALKING`
+- `WALKING UPSTAIRS`
+- `WALKING DOWNSTAIRS`
+- `SITTING`
+- `STANDING`
+- `LAYING`
+
+For each of the last activities, it calcule 79 features like you can see in the next table
+
+```{r, echo = FALSE}
+
+library("knitr")
+
+names <- c("timeBodyAccelerometer (TBA)", "timeGravityAccelerometer (TGA)", "TBA Jerk", "timeBodyGyroscope (TBG)", "TBG Jerk", "TBA Magnitude", "TGA Magnitude", "TBA JerkMagnitude", "TBG Magnitude", "TBG JerkMagnitude", "frequencyBodyAccelerometer (FBA)", "FBA Jerk", "frequencyBodyGyroscope (FBG)", "FBA Magnitude", "FBA JerkMagnitude", "FBG Magnitude", "FBG Magnitude")
+col <- c(rep("mean of each axis; standar desviation of each axis", 5), rep("mean; standar desviation", 5), rep("mean of each axis; standar desviation of each; mean of frequency of each axis", 3), rep("mean; standar desviation; mean of frequency", 4))
+total <- c(rep(6, 5), rep(2, 5), rep(9, 3), rep(3, 4))
+table <- data.frame("Variable" = names, "Measurements" = col, "Total_measurements" = total)
+kable(table, caption = "Summary of the measurements taken"
+      , col.names = c("Variables", "Measurements", "No. total measurements"))
+
+```
+
+For other details review the README file
